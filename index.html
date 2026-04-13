@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAME//SHIFT — Merged Studio</title>
+    <meta name="description" content="We don't show projects. We drop you inside the process.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="#" class="nav__logo magnetic" data-magnetic>FRAME//SHIFT</a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="#work" class="nav__link magnetic" data-magnetic>Work</a></li>
+                <li><a href="#process" class="nav__link magnetic" data-magnetic>Process</a></li>
+                <li><a href="#services" class="nav__link magnetic" data-magnetic>Services</a></li>
+                <li><a href="#contact" class="nav__link nav__link--cta magnetic" data-magnetic>Start Project</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. COLD OPEN HERO -->
+    <section class="hero" id="hero">
+        <div class="hero__video-container">
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="media/showreel-2024.mp4" type="video/mp4">
+            </video>
+            <div class="hero__video-overlay"></div>
+        </div>
+        
+        <div class="hero__content">
+            <div class="hero__kicker">
+                <span class="hero__kicker-line"></span>
+                <span class="hero__kicker-text">Merged Studio</span>
+            </div>
+            
+            <h1 class="hero__title">
+                <span class="hero__title-line" data-splitting>Frames that</span>
+                <span class="hero__title-line" data-splitting>pull people in.</span>
+            </h1>
+            
+            <p class="hero__subtitle">Built like cinema. Shipped like strategy.</p>
+            
+            <div class="hero__cta">
+                <a href="#work" class="btn btn--primary magnetic" data-magnetic>
+                    <span>Enter the reel</span>
+                </a>
+                <a href="#contact" class="btn btn--secondary magnetic" data-magnetic>
+                    <span>Start a project</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero__meta">
+            <span>Video</span>
+            <span class="hero__meta-dot"></span>
+            <span>3D</span>
+            <span class="hero__meta-dot"></span>
+            <span>Motion</span>
+            <span class="hero__meta-dot"></span>
+            <span>AI</span>
+        </div>
+        
+        <div class="hero__scroll">
+            <div class="hero__scroll-text">Scroll</div>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- 2. CHAOS TO SIGNAL — Assembly -->
+    <section class="assembly" id="assembly">
+        <div class="assembly__container">
+            <div class="assembly__header">
+                <span class="assembly__label">The Process</span>
+                <h2 class="assembly__title">From loose ideas<br>to locked frames.</h2>
+            </div>
+            
+            <div class="assembly__grid">
+                <div class="assembly__item" data-assemble>
+                    <div class="assembly__visual assembly__visual--storyboard">
+                        <div class="storyboard-grid">
+                            <div class="storyboard-frame"></div>
+                            <div class="storyboard-frame"></div>
+                            <div class="storyboard-frame"></div>
+                            <div class="storyboard-frame"></div>
+                        </div>
+                    </div>
+                    <span class="assembly__tag">Storyboard</span>
+                </div>
+                
+                <div class="assembly__item" data-assemble>
+                    <div class="assembly__visual assembly__visual--waveform">
+                        <div class="waveform">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <span class="assembly__tag">Sound Design</span>
+                </div>
+                
+                <div class="assembly__item" data-assemble>
+                    <div class="assembly__visual assembly__visual--wireframe">
+                        <div class="wireframe-cube">
+                            <div class="cube-face"></div>
+                            <div class="cube-face"></div>
+                            <div class="cube-face"></div>
+                        </div>
+                    </div>
+                    <span class="assembly__tag">3D Build</span>
+                </div>
+                
+                <div class="assembly__item assembly__item--final" data-assemble>
+                    <div class="assembly__visual assembly__visual--final">
+                        <img src="images/01-1.jpg" alt="Final frame">
+                    </div>
+                    <span class="assembly__tag">Locked Frame</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES CHAMBER -->
+    <section class="services-chamber" id="services">
+        <div class="services-chamber__bg" id="servicesBg"></div>
+        
+        <div class="container">
+            <div class="services-chamber__header">
+                <span class="section-label">Capabilities</span>
+                <h2 class="section-title">Four disciplines.<br>One workflow.</h2>
+            </div>
+            
+            <div class="services-chamber__grid">
+                <div class="service-panel" data-service="film">
+                    <div class="service-panel__number">01</div>
+                    <h3 class="service-panel__title">Film</h3>
+                    <p class="service-panel__desc">Stories built for attention.</p>
+                    <div class="service-panel__visual">
+                        <video autoplay muted loop playsinline>
+                            <source src="media/Heritage-Thumb.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                
+                <div class="service-panel" data-service="motion">
+                    <div class="service-panel__number">02</div>
+                    <h3 class="service-panel__title">Motion</h3>
+                    <p class="service-panel__desc">Design that moves with intent.</p>
+                    <div class="service-panel__visual">
+                        <img src="images/FRAME-5.png" alt="Motion">
+                    </div>
+                </div>
+                
+                <div class="service-panel" data-service="3d">
+                    <div class="service-panel__number">03</div>
+                    <h3 class="service-panel__title">3D</h3>
+                    <p class="service-panel__desc">Worlds crafted frame by frame.</p>
+                    <div class="service-panel__visual">
+                        <video autoplay muted loop playsinline>
+                            <source src="media/Afrika-Shot.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                
+                <div class="service-panel" data-service="ai">
+                    <div class="service-panel__number">04</div>
+                    <h3 class="service-panel__title">AI Visuals</h3>
+                    <p class="service-panel__desc">New tools. Real creative direction.</p>
+                    <div class="service-panel__visual">
+                        <img src="images/08-1.jpg" alt="AI Visuals">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED CASE WALL -->
+    <section class="case-wall" id="work">
+        <div class="container">
+            <div class="case-wall__header">
+                <span class="section-label">Selected Work</span>
+                <h2 class="section-title">Projects that<br>leave a mark.</h2>
+            </div>
+            
+            <div class="case-wall__grid">
+                <!-- Large Feature -->
+                <article class="case-card case-card--feature" data-case>
+                    <div class="case-card__media">
+                        <video autoplay muted loop playsinline>
+                            <source src="media/Heritage-Thumb.mp4" type="video/mp4">
+                        </video>
+                        <div class="case-card__overlay"></div>
+                    </div>
+                    <div class="case-card__content">
+                        <span class="case-card__client">Heritage Customs</span>
+                        <h3 class="case-card__title">Visionary automotive concepts brought to life</h3>
+                        <div class="case-card__meta">
+                            <span>3D</span>
+                            <span>Video</span>
+                            <span>Color</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Tall -->
+                <article class="case-card case-card--tall" data-case>
+                    <div class="case-card__media">
+                        <video autoplay muted loop playsinline>
+                            <source src="media/Sea-Ray_Finland_Final_2082022.mp4" type="video/mp4">
+                        </video>
+                        <div class="case-card__overlay"></div>
+                    </div>
+                    <div class="case-card__content">
+                        <span class="case-card__client">Sea Ray</span>
+                        <h3 class="case-card__title">Luxury marine cinematography</h3>
+                        <div class="case-card__meta">
+                            <span>Video</span>
+                            <span>Drone</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Wide -->
+                <article class="case-card case-card--wide" data-case>
+                    <div class="case-card__media">
+                        <img src="images/FRAME-5.png" alt="Brunswick">
+                        <div class="case-card__overlay"></div>
+                    </div>
+                    <div class="case-card__content">
+                        <span class="case-card__client">Brunswick Corporation</span>
+                        <h3 class="case-card__title">World's largest tech event presentation</h3>
+                        <div class="case-card__meta">
+                            <span>3D</span>
+                            <span>Motion</span>
+                            <span>Event</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Standard -->
+                <article class="case-card" data-case>
+                    <div class="case-card__media">
+                        <video autoplay muted loop playsinline>
+                            <source src="media/Afrika-Shot.mp4" type="video/mp4">
+                        </video>
+                        <div class="case-card__overlay"></div>
+                    </div>
+                    <div class="case-card__content">
+                        <span class="case-card__client">African Landscapes</span>
+                        <h3 class="case-card__title">Breathtaking aerial cinematography</h3>
+                        <div class="case-card__meta">
+                            <span>Drone</span>
+                            <span>Documentary</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MAKING-OF TUNNEL — Horizontal Scroll -->
+    <section class="process-tunnel" id="process">
+        <div class="process-tunnel__sticky">
+            <div class="process-tunnel__header">
+                <span class="section-label">The Process</span>
+                <h2 class="section-title">How we build.</h2>
+            </div>
+            
+            <div class="process-tunnel__track" id="processTrack">
+                <div class="process-phase" data-phase="idea">
+                    <div class="process-phase__number">01</div>
+                    <h3 class="process-phase__title">Idea</h3>
+                    <p class="process-phase__desc">Concept, references, strategy. The foundation.</p>
+                    <div class="process-phase__visual">
+                        <div class="visual-idea">
+                            <div class="idea-note"></div>
+                            <div class="idea-note"></div>
+                            <div class="idea-note"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-phase" data-phase="script">
+                    <div class="process-phase__number">02</div>
+                    <h3 class="process-phase__title">Script</h3>
+                    <p class="process-phase__desc">Structure, beats, narrative flow.</p>
+                    <div class="process-phase__visual">
+                        <div class="visual-script">
+                            <div class="script-line"></div>
+                            <div class="script-line"></div>
+                            <div class="script-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-phase" data-phase="build">
+                    <div class="process-phase__number">03</div>
+                    <h3 class="process-phase__title">Build</h3>
+                    <p class="process-phase__desc">Rigs, models, sets, shoots.</p>
+                    <div class="process-phase__visual">
+                        <div class="visual-build">
+                            <img src="images/01-1.jpg" alt="Build">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-phase" data-phase="edit">
+                    <div class="process-phase__number">04</div>
+                    <h3 class="process-phase__title">Edit</h3>
+                    <p class="process-phase__desc">Cuts, pacing, motion, energy.</p>
+                    <div class="process-phase__visual">
+                        <div class="visual-edit">
+                            <div class="timeline"></div>
+                            <div class="timeline-markers">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-phase" data-phase="grade">
+                    <div class="process-phase__number">05</div>
+                    <h3 class="process-phase__title">Grade</h3>
+                    <p class="process-phase__desc">Color, polish, contrast. Final lock.</p>
+                    <div class="process-phase__visual">
+                        <div class="visual-grade">
+                            <img src="images/08-1.jpg" alt="Grade">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. STUDIO MANIFESTO -->
+    <section class="manifesto" id="about">
+        <div class="container">
+            <div class="manifesto__statements">
+                <div class="manifesto__statement" data-manifesto>
+                    <span class="manifesto__number">01</span>
+                    <h2 class="manifesto__text">We cut noise.</h2>
+                </div>
+                <div class="manifesto__statement" data-manifesto>
+                    <span class="manifesto__number">02</span>
+                    <h2 class="manifesto__text">We build memory.</h2>
+                </div>
+                <div class="manifesto__statement" data-manifesto>
+                    <span class="manifesto__number">03</span>
+                    <h2 class="manifesto__text">We choreograph attention.</h2>
+                </div>
+                <div class="manifesto__statement" data-manifesto>
+                    <span class="manifesto__number">04</span>
+                    <h2 class="manifesto__text">We make complexity<br>feel cinematic.</h2>
+                </div>
+                <div class="manifesto__statement" data-manifesto>
+                    <span class="manifesto__number">05</span>
+                    <h2 class="manifesto__text">We merge craft<br>with speed.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROOF OF IMPACT -->
+    <section class="proof" id="proof">
+        <div class="container">
+            <div class="proof__header">
+                <span class="section-label">Proof</span>
+                <h2 class="section-title">Trusted by<br>industry leaders.</h2>
+            </div>
+            
+            <div class="proof__grid">
+                <div class="proof__clients">
+                    <div class="client-logo">Beter Bed</div>
+                    <div class="client-logo">Bol</div>
+                    <div class="client-logo">Boston Whaler</div>
+                    <div class="client-logo">Brunswick</div>
+                    <div class="client-logo">Deloitte</div>
+                    <div class="client-logo">KPN</div>
+                    <div class="client-logo">NATO</div>
+                    <div class="client-logo">Sea Ray</div>
+                </div>
+                
+                <div class="proof__testimonial">
+                    <blockquote>
+                        <p>"The content came out perfect. We had executives, colleagues and consumers commenting on the content. The brand teams are eager to use their slice."</p>
+                        <footer>
+                            <cite>Eric Jensen</cite>
+                            <span>Video Marketing Strategy, Brunswick</span>
+                        </footer>
+                    </blockquote>
+                </div>
+                
+                <div class="proof__metrics">
+                    <div class="metric">
+                        <span class="metric__number">50+</span>
+                        <span class="metric__label">Projects Delivered</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric__number">12</span>
+                        <span class="metric__label">Industry Awards</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric__number">6</span>
+                        <span class="metric__label">Core Team Members</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FINAL FRAME CTA -->
+    <section class="final-frame" id="contact">
+        <div class="final-frame__video">
+            <video autoplay muted loop playsinline>
+                <source src="media/showreel-2024.mp4" type="video/mp4">
+            </video>
+            <div class="final-frame__overlay"></div>
+        </div>
+        
+        <div class="final-frame__content">
+            <h2 class="final-frame__title">Ready to make something<br>people actually feel?</h2>
+            <a href="mailto:hello@merged.cc" class="btn btn--large btn--primary magnetic" data-magnetic>
+                <span>Start a project</span>
+            </a>
+            <div class="final-frame__contact">
+                <a href="mailto:hello@merged.cc">hello@merged.cc</a>
+                <span>Amsterdam, NL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <span class="footer__logo">FRAME//SHIFT</span>
+                    <p>By Merged Studio</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="#work">Work</a>
+                    <a href="#process">Process</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="LinkedIn">LI</a>
+                    <a href="#" aria-label="Vimeo">VM</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Merged Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
