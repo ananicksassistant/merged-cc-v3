@@ -391,5 +391,108 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 300);
 });
 
+// ===== AI TRANSFORMATION SHOWCASE =====
+const aiPhases = ['wireframe', 'render', 'real'];
+let currentPhase = 0;
+let aiAutoPlay = null;
+const aiProgressBar = document.getElementById('aiProgressBar');
+const aiText = document.getElementById('aiText');
+
+const aiMessages = [
+  'Analyzing wireframe...',
+  'Generating 3D mesh...',
+  'Applying materials...',
+  'Rendering lighting...',
+  'Final composition...',
+  'Done.'
+];
+
+function typeWriter(text, element, speed = 30) {
+  element.textContent = '';
+  let i = 0;
+  return new Promise(resolve => {
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        resolve();
+      }
+    }
+    type();
+  });
+}
+
+function showPhase(index) {
+  // Hide all views
+  document.querySelectorAll('.ai-transform__view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.ai-transform__phase').forEach(p => p.classList.remove('active'));
+  
+  // Show target view
+  const phase = aiPhases[index];
+  document.getElementById(phase + 'View').classList.add('active');
+  document.querySelector(`[data-phase="${phase}"]`).classList.add('active');
+  
+  // Update progress
+  if (aiProgressBar) {
+    aiProgressBar.style.width = ((index / (aiPhases.length - 1)) * 100) + '%';
+  }
+  
+  // Typewriter message
+  const msgIndex = Math.min(index, aiMessages.length - 1);
+  if (aiText) {
+    typeWriter(aiMessages[msgIndex], aiText);
+  }
+  
+  // Sound
+  sound.play('tick');
+}
+
+function nextPhase() {
+  currentPhase = (currentPhase + 1) % aiPhases.length;
+  showPhase(currentPhase);
+}
+
+function startAIAutoPlay() {
+  if (aiAutoPlay) return;
+  aiAutoPlay = setInterval(nextPhase, 4000);
+}
+
+function stopAIAutoPlay() {
+  if (aiAutoPlay) {
+    clearInterval(aiAutoPlay);
+    aiAutoPlay = null;
+  }
+}
+
+// Phase button clicks
+document.querySelectorAll('.ai-transform__phase').forEach(btn => {
+  btn.addEventListener('click', () => {
+    stopAIAutoPlay();
+    currentPhase = aiPhases.indexOf(btn.dataset.phase);
+    showPhase(currentPhase);
+    startAIAutoPlay();
+  });
+});
+
+// Initialize AI showcase on scroll into view
+ScrollTrigger.create({
+  trigger: '.ai-transform',
+  start: 'top 70%',
+  onEnter: () => {
+    showPhase(0);
+    setTimeout(startAIAutoPlay, 2000);
+  },
+  once: true
+});
+
+// Pause on hover
+const aiStage = document.getElementById('aiStage');
+if (aiStage) {
+  aiStage.addEventListener('mouseenter', stopAIAutoPlay);
+  aiStage.addEventListener('mouseleave', startAIAutoPlay);
+}
+
 console.log('%cFRAME//SHIFT v3', 'font-size: 20px; font-weight: bold; color: #3BE7D5;');
 console.log('%cCinematic Signal — Full Hyper-Interactive Edition', 'font-size: 12px; color: #A8AFB8;');

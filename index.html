@@ -149,6 +149,115 @@
         </div>
     </section>
 
+    <!-- 2B. AI TRANSFORMATION SHOWCASE -->
+    <section class="ai-transform" id="ai-transform">
+        <div class="container">
+            <div class="ai-transform__header">
+                <span class="section-label">AI → Reality</span>
+                <h2 class="section-title">From concept to creation.<br><span class="ai-transform__highlight">In seconds.</span></h2>
+                <p class="ai-transform__desc">Watch AI transform a simple wireframe into a photorealistic vessel. This is the future of content creation.</p>
+            </div>
+            
+            <div class="ai-transform__stage" id="aiStage">
+                <!-- Phase navigation -->
+                <div class="ai-transform__phases">
+                    <button class="ai-transform__phase active" data-phase="wireframe">
+                        <span class="ai-transform__phase-num">01</span>
+                        <span class="ai-transform__phase-label">Wireframe</span>
+                    </button>
+                    <div class="ai-transform__phase-line"></div>
+                    <button class="ai-transform__phase" data-phase="render">
+                        <span class="ai-transform__phase-num">02</span>
+                        <span class="ai-transform__phase-label">3D Render</span>
+                    </button>
+                    <div class="ai-transform__phase-line"></div>
+                    <button class="ai-transform__phase" data-phase="real">
+                        <span class="ai-transform__phase-num">03</span>
+                        <span class="ai-transform__phase-label">Real</span>
+                    </button>
+                </div>
+                
+                <!-- Auto-play progress -->
+                <div class="ai-transform__progress">
+                    <div class="ai-transform__progress-bar" id="aiProgressBar"></div>
+                </div>
+                
+                <!-- Canvas stages -->
+                <div class="ai-transform__canvas">
+                    <!-- Phase 1: Wireframe SVG -->
+                    <div class="ai-transform__view ai-transform__view--wireframe active" id="wireframeView">
+                        <svg class="wireframe-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Hull outline -->
+                            <path class="wf-line wf-draw" d="M 100 350 Q 150 300 250 280 Q 400 250 550 260 Q 680 270 740 320 L 740 360 Q 680 380 550 370 Q 400 380 250 370 Q 150 370 100 350 Z" fill="none" stroke="#3BE7D5" stroke-width="1.5" opacity="0.8"/>
+                            <!-- Cabin -->
+                            <path class="wf-line wf-draw" d="M 300 280 L 300 230 Q 320 210 420 210 Q 500 210 520 230 L 520 270" fill="none" stroke="#3BE7D5" stroke-width="1.5" opacity="0.6"/>
+                            <!-- Windows -->
+                            <rect class="wf-line wf-draw" x="340" y="220" width="40" height="30" rx="3" fill="none" stroke="#3BE7D5" stroke-width="1" opacity="0.5"/>
+                            <rect class="wf-line wf-draw" x="400" y="220" width="40" height="30" rx="3" fill="none" stroke="#3BE7D5" stroke-width="1" opacity="0.5"/>
+                            <rect class="wf-line wf-draw" x="460" y="220" width="40" height="30" rx="3" fill="none" stroke="#3BE7D5" stroke-width="1" opacity="0.5"/>
+                            <!-- Bow detail -->
+                            <path class="wf-line wf-draw" d="M 740 320 Q 760 310 770 330 Q 770 350 750 360" fill="none" stroke="#3BE7D5" stroke-width="1" opacity="0.7"/>
+                            <!-- Water line -->
+                            <path class="wf-line wf-draw" d="M 80 360 Q 200 370 400 375 Q 600 370 780 360" fill="none" stroke="#3BE7D5" stroke-width="0.5" opacity="0.3" stroke-dasharray="5,5"/>
+                            <!-- Measurement lines -->
+                            <line class="wf-line wf-draw" x1="100" y1="395" x2="740" y2="395" stroke="#6E7681" stroke-width="0.5" opacity="0.3"/>
+                            <line class="wf-line wf-draw" x1="100" y1="390" x2="100" y2="400" stroke="#6E7681" stroke-width="0.5" opacity="0.3"/>
+                            <line class="wf-line wf-draw" x1="740" y1="390" x2="740" y2="400" stroke="#6E7681" stroke-width="0.5" opacity="0.3"/>
+                            <text class="wf-text" x="420" y="412" fill="#6E7681" font-size="10" text-anchor="middle" opacity="0.4">8.6m LOA</text>
+                            <!-- Grid dots -->
+                            <circle cx="200" cy="300" r="2" fill="#3BE7D5" opacity="0.2"/>
+                            <circle cx="400" cy="290" r="2" fill="#3BE7D5" opacity="0.2"/>
+                            <circle cx="600" cy="300" r="2" fill="#3BE7D5" opacity="0.2"/>
+                        </svg>
+                        <div class="ai-transform__label">Wireframe — Concept Phase</div>
+                    </div>
+                    
+                    <!-- Phase 2: 3D Render -->
+                    <div class="ai-transform__view ai-transform__view--render" id="renderView">
+                        <div class="render-boat">
+                            <div class="render-boat__hull">
+                                <div class="render-boat__reflection"></div>
+                                <div class="render-boat__deck"></div>
+                                <div class="render-boat__cabin"></div>
+                                <div class="render-boat__windows">
+                                    <div class="render-boat__window"></div>
+                                    <div class="render-boat__window"></div>
+                                    <div class="render-boat__window"></div>
+                                </div>
+                            </div>
+                            <div class="render-boat__water">
+                                <div class="render-boat__wave"></div>
+                                <div class="render-boat__wave"></div>
+                                <div class="render-boat__wave"></div>
+                            </div>
+                        </div>
+                        <div class="ai-transform__label">3D Render — Visualization Phase</div>
+                    </div>
+                    
+                    <!-- Phase 3: Real Video -->
+                    <div class="ai-transform__view ai-transform__view--real" id="realView">
+                        <video autoplay muted loop playsinline>
+                            <source src="media/Sea-Ray_Finland_Final_2082022.mp4" type="video/mp4">
+                        </video>
+                        <div class="ai-transform__view-overlay">
+                            <div class="ai-transform__view-badge">
+                                <span class="badge-dot"></span>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="ai-transform__label">Real Footage — Final Delivery</div>
+                    </div>
+                </div>
+                
+                <!-- AI processing text -->
+                <div class="ai-transform__process" id="aiProcess">
+                    <span class="ai-process__cursor">_</span>
+                    <span id="aiText"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 3. SERVICES CHAMBER -->
     <section class="services-chamber" id="services">
         <div class="services-chamber__bg" id="servicesBg"></div>
