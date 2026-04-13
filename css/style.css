@@ -1248,3 +1248,233 @@ a { color: inherit; text-decoration: none; }
     font-size: 2.5rem;
   }
 }
+/* ========================================
+   HYPER-INTERACTIVE v3 UPGRADES
+   ======================================== */
+
+/* Progress Bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Match-cut Section Transitions */
+.section-transition {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, var(--base) 30%);
+  z-index: 1;
+}
+
+/* Film Burn Effect */
+.film-burn {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0;
+  background: radial-gradient(circle at center, rgba(59,231,213,0.03) 0%, transparent 70%);
+  transition: opacity 0.5s ease;
+}
+
+.film-burn.active {
+  opacity: 1;
+}
+
+/* Enhanced Glass Panels */
+.glass-panel {
+  background: rgba(18, 21, 26, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+/* Magnetic Button Press Effect */
+.btn--magnetic {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s ease;
+}
+
+.btn--magnetic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn--magnetic:hover::before {
+  opacity: 1;
+}
+
+.btn--magnetic:active {
+  transform: scale(0.98) !important;
+}
+
+/* Kinetic Text Split */
+.kinetic-text {
+  overflow: hidden;
+}
+
+.kinetic-text .word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.kinetic-text .char {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.kinetic-text.visible .char {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Animated Counter */
+.counter {
+  font-family: var(--display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Depth Layers for Parallax */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.parallax-layer--back { z-index: 1; }
+.parallax-layer--mid { z-index: 2; }
+.parallax-layer--front { z-index: 3; }
+
+/* Section Snap Indicator */
+.snap-indicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.snap-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--text-faint);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.snap-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.5);
+}
+
+/* Hover Video Scrub */
+.case-card__media video {
+  transition: opacity 0.3s ease;
+}
+
+.case-card:not(:hover) .case-card__media video {
+  opacity: 0.6;
+}
+
+.case-card:hover .case-card__media video {
+  opacity: 1;
+}
+
+/* Service Panel Enhanced Hover */
+.service-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59,231,213,0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.service-panel:hover::before {
+  opacity: 1;
+}
+
+/* Manifesto Hover Line */
+.manifesto__statement::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.manifesto__statement:hover::after {
+  width: 100%;
+}
+
+.manifesto__statement {
+  position: relative;
+}
+
+/* Mobile Enhancements */
+@media (min-width: 768px) {
+  .snap-indicator { display: flex; }
+}
+
+@media (max-width: 767px) {
+  .snap-indicator { display: none; }
+  
+  .manifesto__text {
+    font-size: 1.75rem !important;
+  }
+  
+  .hero__title {
+    font-size: 2.8rem !important;
+  }
+  
+  .services-chamber__grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .process-tunnel__track {
+    scroll-padding-left: 1rem;
+  }
+  
+  .process-phase {
+    min-width: 280px;
+  }
+  
+  .case-wall__grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 250px !important;
+  }
+}
